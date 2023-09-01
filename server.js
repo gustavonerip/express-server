@@ -25,3 +25,10 @@ app.get('/items/:id', (req, res) => {
     res.status(404).json({ message: 'Item not found' });
   }
 });
+
+// POST 
+app.post('/items', (req, res) => {
+    const newItem = req.body;
+    data.push(newItem);
+    res.status(201).json(newItem);
+  });
