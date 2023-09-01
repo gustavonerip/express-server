@@ -47,3 +47,16 @@ app.put('/items/:id', (req, res) => {
       res.status(404).json({ message: 'Item not found' });
     }
   });
+
+  // DELETE an item by ID
+app.delete('/items/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const index = data.findIndex((item) => item.id === id);
+  
+    if (index !== -1) {
+      data.splice(index, 1);
+      res.json({ message: 'Item deleted' });
+    } else {
+      res.status(404).json({ message: 'Item not found' });
+    }
+  });
